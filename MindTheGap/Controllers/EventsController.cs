@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using MindTheGap.Models;
 using Newtonsoft.Json;
 using System;
+using System.Globalization;
 
 namespace MindTheGap.Controllers
 {
@@ -24,10 +25,16 @@ namespace MindTheGap.Controllers
         [HttpPost]
         public JsonResult GetUserEventInfo(EventsController events)
         {
+
+            DateTime startDateResult;
+            DateTime endDateResult;
+
+
             string summary = events.EventSummary;
             string location = events.EventLocation;
             string description = events.EventDescription;
             string startTime = events.EventStart;
+
             string endTime = events.EventEnd;
             string recurrence = events.EventRecurrence;
             bool reminders = events.EventReminders;
@@ -35,11 +42,14 @@ namespace MindTheGap.Controllers
             string AllInfo;
 
             //Event newEvent = new Event();
+            //newEvent.userId = "c03d4c0a-ee82-4980-ad00-bb4cb16f99ca";
             //newEvent.summary = summary;
             //newEvent.location = location;
             //newEvent.description = description;
-            //newEvent.starttime = DateTime.TryParseExact(startTime,);
-            //newEvent.endtime = endTime;
+            //DateTime.TryParse(startTime, out startDateResult);
+            //newEvent.starttime = startDateResult;
+            //DateTime.TryParse(endTime, out endDateResult);
+            //newEvent.endtime = endDateResult;
             //newEvent.recurrence = recurrence;
             //newEvent.reminders = reminders;
             //newEvent.colorId = color;
@@ -57,16 +67,21 @@ namespace MindTheGap.Controllers
 
             return new JsonResult()
             {
-                Data = JsonConvert.SerializeObject(AllInfo
-                ),
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+
             };
 
             //return Json(summary, JsonRequestBehavior.AllowGet);
         }
         //END OF TEST
 
-
+        public JsonResult GetCalendarDatabase()
+        {
+            using (MindTheGapEntities db = new MindTheGapEntities())
+            {
+                var events = db.Events.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
         // GET: Events
         public ActionResult Index()
         {
@@ -106,7 +121,7 @@ namespace MindTheGap.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+
                 db.Events.Add(@event);
                 db.SaveChanges();
                 return RedirectToAction("Index");

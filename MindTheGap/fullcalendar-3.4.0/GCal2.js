@@ -40,10 +40,10 @@
         });
     }
 
-    /**
-     *  Called when the signed in status changes, to update the UI
-     *  appropriately. After a sign-in, the API is called.
-     */
+    //*
+    // *  Called when the signed in status changes, to update the UI
+    // *  appropriately. After a sign-in, the API is called.
+     
     function updateSigninStatus(isSignedIn) {
         if (isSignedIn) {
             authorizeButton.style.display = 'none';
@@ -55,16 +55,16 @@
         }
     }
 
-    /**
-     *  Sign in the user upon button click.
-     */
+    //*
+    // *  Sign in the user upon button click.
+     
     function handleAuthClick(event) {
         gapi.auth2.getAuthInstance().signIn();
     }
 
-    /**
-     *  Sign out the user upon button click.
-     */
+    //*
+    // *  Sign out the user upon button click.
+     
     function handleSignoutClick(event) {
         gapi.auth2.getAuthInstance().signOut();
     }
@@ -105,7 +105,7 @@
                         data: JSON.stringify(data),
                         success: function (mydata) {
                             alert(mydata);
-                        },
+                        }
 
                     });
                     //return false;

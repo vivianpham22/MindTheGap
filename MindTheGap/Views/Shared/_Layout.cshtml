@@ -170,20 +170,17 @@
     @*<script src="~/fullcalendar-3.4.0/gcal.min.js"></script>*@
     @*<script src="~/fullcalendar-3.4.0/locale-all.js"></script>*@
 
+
     <script>
         $(document).ready(function () {
 
             // page is now ready, initialize the calendar...
 
             $('#calendar').fullCalendar({
-                // put your options and callbacks here
+                events: getEvent
             })
 
         });
-    </script>
-    <script async defer src="https://apis.google.com/js/api.js"
-            onload="this.onload=function(){};handleClientLoad()"
-            onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
 </body>
 </html>
