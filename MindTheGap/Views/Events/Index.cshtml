@@ -8,27 +8,7 @@
 <div id="calendar"></div>
 
 <script>
-        var getEvent = [];
-        $.ajax({
-            type: "GET",
-            url: "GetCalendarDatabase",
-            success: function (data) {
-                $.each(data, function (key, value) {
-                    var summary = value.summary;
-                    var starttime = value.starttime;
-                    var endtime = value.endtime;
-
-                    var insertEvents = {};
-                    insertEvents =
-                        {
-                            title: summary,
-                            start: starttime,
-                            end: endtime,
-                        }
-                    getEvents.push(insertEvents);
-                })
-            }
-        })
+        
 </script>
 <script async defer src="https://apis.google.com/js/api.js"
         onload="this.onload=function(){};handleClientLoad()"

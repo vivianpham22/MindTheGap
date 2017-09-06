@@ -172,6 +172,29 @@
 
 
     <script>
+        var getEvent = [];
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("GetCalendarDatabase")",
+            success: function (data) {
+                $.each(data, function (key, value) {
+                    var summary = value.summary;
+                    var starttime = value.starttime.toISOString();
+                    var endtime = value.endtime.toISOString();
+
+                    var insertEvents = {};
+                    insertEvents =
+                        {
+                            title: summary,
+                            start: starttime,
+                            end: endtime,
+                        }
+                    getEvents.push(insertEvents);
+                    alert(insertEvents);
+                })
+            }
+        })
+
         $(document).ready(function () {
 
             // page is now ready, initialize the calendar...
