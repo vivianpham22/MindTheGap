@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using MindTheGap.Models;
 using Newtonsoft.Json;
+using System;
 
 namespace MindTheGap.Controllers
 {
@@ -36,6 +33,19 @@ namespace MindTheGap.Controllers
             bool reminders = events.EventReminders;
             string color = events.EventColor;
             string AllInfo;
+
+            //Event newEvent = new Event();
+            //newEvent.summary = summary;
+            //newEvent.location = location;
+            //newEvent.description = description;
+            //newEvent.starttime = DateTime.TryParseExact(startTime,);
+            //newEvent.endtime = endTime;
+            //newEvent.recurrence = recurrence;
+            //newEvent.reminders = reminders;
+            //newEvent.colorId = color;
+            //db.Events.Add(newEvent);
+            //db.SaveChanges();
+
             if (startTime == "All Day")
             {
                 AllInfo = summary + " is an All Day Event";
@@ -96,6 +106,7 @@ namespace MindTheGap.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.Events.Add(@event);
                 db.SaveChanges();
                 return RedirectToAction("Index");
