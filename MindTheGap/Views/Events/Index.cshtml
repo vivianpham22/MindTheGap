@@ -30,7 +30,11 @@
                                 description: value.description,
                                 start: moment(value.starttime),
                                 end: moment(value.endtime),
-                                color: value.colorId
+                                color: value.colorId,
+                                editable: true,
+                                startEditable: true,
+                                durationEditable: true,
+                                resourceEditable: true
                             });
                         })
                         GenerateCalendar(getEvents);
@@ -41,8 +45,8 @@
                 })
                 function GenerateCalendar(getEvents) {
                     $('#calendar').fullCalendar({
-                        eventColor: '#ffb6c1',
-                        events: getEvents
+                        events: getEvents,
+                     
                     })
                 }
             })
@@ -88,7 +92,7 @@
 
         });
 </script>
-@*<script async defer src="https://apis.google.com/js/api.js"
+<script async defer src="https://apis.google.com/js/api.js"
         onload="this.onload=function(){};handleClientLoad()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
-</script>*@
+</script>
