@@ -27,8 +27,8 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
     <!--FullCalendar  Style Sheets-->
-    @*<link href="~/fullcalendar-3.4.0/fullcalendar.print.min.css" rel="stylesheet" />
-        <link href="~/fullcalendar-3.4.0/fullcalendar.print.css" rel="stylesheet" />*@
+    @*<link href="~/fullcalendar-3.4.0/fullcalendar.print.min.css" rel="stylesheet" />*@
+        @*<link href="~/fullcalendar-3.4.0/fullcalendar.print.css" rel="stylesheet" />*@
     <link href="~/fullcalendar-3.4.0/fullcalendar.min.css" rel="stylesheet" />
     @*<link href="~/fullcalendar-3.4.0/fullcalendar.css" rel="stylesheet" />*@
     @*<link href="~/fullcalendar-3.4.0/lib/cupertino/jquery-ui.min.css" rel="stylesheet" />*@
@@ -165,17 +165,19 @@
         <script src="~/fullcalendar-3.4.0/locale/zh-tw.js"></script>*@
     <script src="~/fullcalendar-3.4.0/fullcalendar.js"></script>
     @*<script src="~/fullcalendar-3.4.0/fullcalendar.min.js"></script>*@
-    @*<script src="~/fullcalendar-3.4.0/gcal.js"></script>*@
+    <script src="~/fullcalendar-3.4.0/gcal.js"></script>
     <script src="~/fullcalendar-3.4.0/GCal2.js"></script>
     @*<script src="~/fullcalendar-3.4.0/gcal.min.js"></script>*@
     @*<script src="~/fullcalendar-3.4.0/locale-all.js"></script>*@
 
-
+    @*@Url.Action("GetCalendarDatabase")*@
     <script>
+        $(document).ready(function () {
+
         var getEvent = [];
         $.ajax({
             type: "GET",
-            url: "@Url.Action("GetCalendarDatabase")",
+            url: "/Events/GetCalendarDatabase",
             success: function (data) {
                 $.each(data, function (key, value) {
                     var summary = value.summary;
@@ -192,11 +194,10 @@
                     getEvents.push(insertEvents);
                     alert(insertEvents);
                 })
+                GenerateCalendar(getEvent);
             }
         })
-
-        $(document).ready(function () {
-
+            
             // page is now ready, initialize the calendar...
 
             $('#calendar').fullCalendar({
