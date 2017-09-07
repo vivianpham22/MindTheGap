@@ -119,4 +119,51 @@
         });
     }
 
+function listUpcomingEvents() {
+    gapi.client.calendar.events.list({
+        'calendarId': 'primary',
+        'showDeleted': false,
+        'singleEvents': true,
+        'orderBy': 'startTime'
+    }).then(function (response) {
+        var events = response.result.items;
 
+        if (events.length > 0) {
+            for (i = 0; i < events.length; i++) {
+                var event = events[i];
+                var when = event.start.dateTime;
+                if (!when) {
+                    when = "All Day";
+                }
+                //START OF TEST
+                var data = {
+                    EventSummary: event.summary,
+                    EventLocation: event.location,
+                    EventDescription: event.description,
+                    EventStart: when,
+                    EventEnd: event.end.dateTime,
+                    EventRecurrence: event.recurrence,
+                    EventReminders: event.reminders,
+                    EventColor: event.colorId
+                };
+                //alert(data.EventSummary);
+                $.ajax({
+                    url: "GetUserEventInfo",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+                    success: function (mydata) {
+                        alert(mydata);
+                    }
+
+                });
+                //return false;
+                //END OF TEST
+
+                //appendPre(event.summary + event.location + ' (' + when + ')' + event.end.dateTime)
+            }
+        } else {
+            appendPre('No upcoming events found.');
+        }
+    });
+}

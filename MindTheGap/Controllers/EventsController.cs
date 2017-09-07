@@ -6,6 +6,7 @@ using MindTheGap.Models;
 using Newtonsoft.Json;
 using System;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace MindTheGap.Controllers
 {
@@ -74,14 +75,7 @@ namespace MindTheGap.Controllers
         }
         //END OF TEST
 
-        public JsonResult GetCalendarDatabase()
-        {
-            using (MindTheGapEntities db = new MindTheGapEntities())
-            {
-                var events = db.Events.ToList();
-                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            }
-        }
+       
         // GET: Events
         public ActionResult Index()
         {
@@ -89,6 +83,67 @@ namespace MindTheGap.Controllers
             return View(events.ToList());
         }
 
+        //public static List<Task_has_UsersModel> LoadAllTasks(string start, string end, string uname)
+        //{
+
+        //    MindTheGapEntities db = new MindTheGapEntities();
+
+        //    var uid = (from i in db.UserProfiles
+        //               where i.UserName == uname
+        //               select i.UserId).FirstOrDefault();
+        //    int userId = Convert.ToInt32(uid);
+        //    // var culture = System.Globalization.CultureInfo.CurrentCulture;
+        //    var sql = "SELECT * from task_has_users where UserId = " + userId;
+        //    var data = Database.Open("DefaultConnection").Query(sql);
+
+        //    List<Task_has_UsersModel> result = new List<Task_has_UsersModel>();
+        //    foreach (var item in data)
+        //    {
+        //        Task_has_UsersModel model = new Task_has_UsersModel();
+        //        model.Task_Id = Convert.ToInt32(item.Task_Id);
+        //        model.Project_Id = Convert.ToInt32(item.ProjectId);
+        //        //  model.start_time = Convert.ToDateTime(item.start_time);
+        //        model.start_time = (item.start_time).ToString("yyyy-MM-dd HH-mm-ss");
+        //        model.end_time = (item.end_time).ToString("yyyy-MM-dd HH-mm-ss");
+        //        model.title = item.title;
+        //        result.Add(model);
+        //    }
+        //    return result;
+        //}
+        //[HttpGet]
+        //public JsonResult GetAllEvents(string start, string end)
+        //{
+        //    string uname = (Session["UserName"]).ToString();
+        //    var ApptListForDate = LoadAllTasks(start, end, uname);
+        //    var eventList = from e in ApptListForDate
+        //                    select new
+        //                    {
+        //                        id = e.Task_Id,
+        //                        title = e.title,
+        //                        start = e.start_time,
+        //                        end = e.end_time,
+        //                        allDay = false,
+        //                        color = "#008000",
+        //                        //allDay=false,
+        //                        className = "label-important",
+        //                    };
+        //    var rows = eventList.ToArray();
+
+        //    return Json(rows, JsonRequestBehavior.AllowGet);
+        //}
+
+
+
+
+
+        public ActionResult GetCalendarDatabase()
+        {
+            //using (MindTheGapEntities db = new MindTheGapEntities())
+            {
+                var events = db.Events.ToList();
+                return new JsonResult {Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
