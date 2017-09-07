@@ -26,5 +26,19 @@ namespace MindTheGap.Controllers
 
             return View();
         }
+        public ActionResult FAQ()
+        {
+            ViewBag.Message = "Frequently Asked Questions.";
+
+            return View();
+        }
+        public ActionResult ProfilePage()
+        {
+            ViewBag.Message = "User Profile Page.";
+
+            return View();
+        }
+
     }
+
 }

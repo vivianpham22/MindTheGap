@@ -37,9 +37,51 @@
 
 </head>
 <body>
-
     <!-- Navbar with Sign-in Ability -->
     <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost:54261/Index.html">Mind The Gap</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://localhost:54261/Index.html">Home</a></li>
+                    <li><a href="http://localhost:54261/ProfilePage.html">Profile</a></li>
+                    <li><a href="http://localhost:54261/HowItWorks.html">How It Works</a></li>
+                    <li><a href="http://localhost:54261/FAQ.html">FAQ</a></li>
+                    <li><a href="http://localhost:54261/Contact.html">Contact</a></li>
+                    <li><a href="http://localhost:54261/Register.html">Register</a></li>
+                    <li>
+                        <a class="btn btn-default btn-outline btn-circle" data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
+                    </li>
+                </ul>
+                <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
+                    <form class="navbar-form navbar-right form-inline" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="Email">Email</label>
+                            <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="Password">Password</label>
+                            <input type="password" class="form-control" id="Password" placeholder="Password" required />
+                        </div>
+                        <button type="submit" class="btn btn-success">Sign in</button>
+                    </form>
+                </div>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+    
+    
+    
+    <!-- Navbar with Sign-in Ability -->
+    @*<nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
@@ -73,7 +115,7 @@
                         </div>
                         <button type="submit" class="btn btn-success">Sign in</button>
                     </form>
-                </div>
+                </div>*@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
     </nav><!-- /.navbar -->
