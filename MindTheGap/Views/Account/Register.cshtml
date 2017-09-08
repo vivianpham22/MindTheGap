@@ -36,6 +36,143 @@
     </div>
 }
 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <!--Collapsing Modal-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!--My Script-->
+    <script src="MyScript.js"></script>
+
+    <!--Bootstrap Style Sheets-->
+    <link href="Style.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Font Style Sheet -->
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Didact+Gothic|Encode+Sans+Semi+Expanded|Hind+Madurai|Julius+Sans+One|Mandali|NTR|Pavanam|Questrial|Ramabhadra|Tauri|Wire+One" rel="stylesheet">
+
+
+</head>
+<body>
+    <!-- Navbar with Sign-in Ability -->
+    @*<nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost:54261/Index.html">Mind The Gap</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://localhost:54261/Index.html">Home</a></li>
+                    <li><a href="http://localhost:54261/ProfilePage.html">Profile</a></li>
+                    <li><a href="http://localhost:54261/HowItWorks.html">How It Works</a></li>
+                    <li><a href="http://localhost:54261/FAQ.html">FAQ</a></li>
+                    <li><a href="http://localhost:54261/Contact.html">Contact</a></li>
+                    <li><a href="http://localhost:54261/Register.html">Register</a></li>
+                    <li>
+                        <a class="btn btn-default btn-outline btn-circle" data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
+                    </li>
+                </ul>
+                <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
+                    <form class="navbar-form navbar-right form-inline" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="Email">Email</label>
+                            <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="Password">Password</label>
+                            <input type="password" class="form-control" id="Password" placeholder="Password" required />
+                        </div>
+                        <button type="submit" class="btn btn-success">Sign in</button>
+                    </form>
+                </div>*@
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+
+    @*<div class="container">
+        <form class="form-horizontal" action='' method="POST">
+            <fieldset>
+                <div id="legend">
+                    <legend class="">Register</legend>
+                </div>
+                <div class="control-group">*@
+                    <!-- Username -->
+                    @*<label class="control-label" for="username">Username</label>
+                    <div class="controls">
+                        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+                        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+                    </div>
+                </div>
+
+                <div class="control-group">*@
+                    <!-- E-mail -->
+                    @*<label class="control-label" for="email">E-mail</label>
+                    <div class="controls">
+                        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                        <p class="help-block">Please provide your E-mail</p>
+                    </div>
+                </div>
+
+                <div class="control-group">*@
+                    <!-- Password-->
+                    @*<label class="control-label" for="password">Password</label>
+                    <div class="controls">
+                        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                        <p class="help-block">Password should be at least 4 characters</p>
+                    </div>
+                </div>
+
+                <div class="control-group">*@
+                    <!-- Password -->
+                    @*<label class="control-label" for="password_confirm">Password (Confirm)</label>
+                    <div class="controls">
+                        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+                        <p class="help-block">Please confirm password</p>
+                    </div>
+                </div>
+
+                <div class="control-group">*@
+                    <!-- Button -->
+                    @*<div class="controls">
+                        <button class="btn btn-success">Register</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>*@
+
+
+
+
+</body>
+</html>
+
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
