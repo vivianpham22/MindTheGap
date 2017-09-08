@@ -1,89 +1,70 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<!--Calendar-->
-<div class="row">
-    <div class="col-sm-10 col-md-10">
-        @*<button id="authorize-button" style="display: block;">Authorize</button>
-        <button id="signout-button" style="display: none;">Sign Out</button>*@
-        <h1 style="font-family: 'Questrial', sans-serif;">Events</h1>
-        <ul id='events'></ul>
-        <div id="calendar"></div>
-        <button id="authorize-button" style="display: block;">Authorize</button>
-        <button id="signout-button" style="display: none;">Sign Out</button>
-    </div>
-    <div class="col-sm-2 col-md-2">
-            <div class="nav-side-menu">
-                <div class="brand">To-Do List</div>
 
-                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <!--Collapsing Modal-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-                <div class="menu-list">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-                    <ul id="menu-content" class="menu-content collapse out">
-                        <li data-toggle="collapse" data-target="#products" class="collapsed active">
-                            <a href="#"><i class="fa fa-gift fa-lg"></i> Work <span class="arrow"></span></a>
-                        </li>
-                        <ul class="sub-menu collapse" id="products">
-                            <li class="active"><a href="#">Work</a></li>
-                            <li><a href="#">General</a></li>
-                            <li><a href="#">Buttons</a></li>
-                            <li><a href="#">Tabs & Accordions</a></li>
-                            <li><a href="#">Typography</a></li>
-                            <li><a href="#">FontAwesome</a></li>
-                            <li><a href="#">Slider</a></li>
-                            <li><a href="#">Panels</a></li>
-                            <li><a href="#">Widgets</a></li>
-                            <li><a href="#">Bootstrap Model</a></li>
-                        </ul>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-                        <li data-toggle="collapse" data-target="#service" class="collapsed">
-                            <a href="#"><i class="fa fa-globe fa-lg"></i> Tasks <span class="arrow"></span></a>
-                        </li>
-                        <ul class="sub-menu collapse" id="service">
-                            <li>New Service 1</li>
-                            <li>New Service 2</li>
-                            <li>New Service 3</li>
-                        </ul>
+    <!--My Script-->
+    <script src="MyScript.js"></script>
+    <script src="~/Scripts/MyScript.js"></script>
 
-                        <li data-toggle="collapse" data-target="#new" class="collapsed">
-                            <a href="#"><i class="fa fa-car fa-lg"></i> Interests <span class="arrow"></span></a>
-                        </li>
-                        <ul class="sub-menu collapse" id="new">
-                            <li>New New 1</li>
-                            <li>New New 2</li>
-                            <li>New New 3</li>
-                        </ul>
-                    </ul>
-                </div>
+    <!--Bootstrap Style Sheets-->
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="Style.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/Style.css" rel="stylesheet" />
+
+    <!--Font Style Sheet-->
+</head>
 
 
+<body>
 
-                <!--Second Option To-Do List-->
-                <!--To Do List-->
-                @*<div class="container to-do">
-                    <div class="row to-do">
-                        <div class="col-md-8 col-sm-6">
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div id="myDIV" class="header">
-                                <h2 style="margin:5px">My To Do List</h2>
-                                <input type="text" id="myInput" placeholder="Title...">
-                                <span onclick="newElement()" class="addBtn">Add</span>
-                            </div>
-
-                            <ul id="myUL">
-                                <li>Hit the gym</li>
-                                <li class="checked">Pay bills</li>
-                                <li>Meet George</li>
-                                <li>Buy eggs</li>
-                                <li>Read a book</li>
-                                <li>Organize office</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>*@
-
-            </div>
+    <!--Calendar-->
+    <div class="row">
+        <div class="col-sm-8 col-md-8">
+            @*<button id="authorize-button" style="display: block;">Authorize</button>
+                <button id="signout-button" style="display: none;">Sign Out</button>*@
+            <h1 style="font-family: 'Questrial', sans-serif;">Events</h1>
+            <ul id='events'></ul>
+            <div id="calendar"></div>
+            <button id="authorize-button" style="display: block;">Authorize</button>
+            <button id="signout-button" style="display: none;">Sign Out</button>
         </div>
-</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <h2  style="font-family: 'Questrial', sans-serif;" >To Do List</h2>
+                    <form name="checkListForm"  style="font-family: 'Questrial', sans-serif;" >
+                        <input type="text" name="checkListItem" placeholder="Add Item..." />
+                    </form>
+                    <button type="button" id="add" class="btn btn-info"  style="background-color: #0067A3;color: white; box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Add</button>
+                    <button type="button" id="clear" title="Clear checked items" class="btn btn-default"  style="background-color: #CA242F; color: white; box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;" >clear</button>
+                    <br /><br />
+                    <div class="list" style="font-family: 'Questrial', sans-serif;" ></div>
+                </div>
+                <div class="col-md-4" style="font-family: 'Questrial', sans-serif;" ></div>
+            </div>     
+        </div>
+    </div>
+</body>
+</html>

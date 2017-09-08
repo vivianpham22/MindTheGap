@@ -1,5 +1,5 @@
 ﻿@model MindTheGap.Models.RegisterViewModel
-@{
+@*@{
     ViewBag.Title = "Register";
 }
 
@@ -34,7 +34,7 @@
             <input type="submit" class="btn btn-default" value="Register" />
         </div>
     </div>
-}
+}*@
 
 
 
@@ -72,13 +72,23 @@
 
 </head>
 <body>
-
+    <div class="jumbotron jumbotron-sm" style="background-color:#999999; box-shadow: rgba(0,0,0,0.18) 0px 2px 4px; font-family: 'Questrial', sans-serif; color:white; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    <h1 class="h1">
+                        Register.  @*<small>Feel free to contact us</small>*@
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
-        <form class="form-horizontal" action='' method="POST">
+        <form class="form-horizontal" action='' method="POST" style="font-family: 'Questrial', sans-serif; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
             <fieldset>
                 <div id="legend">
-                    <legend class="">Register</legend>
+                    @*<legend class="">Register</legend>*@
                 </div>
                 <div class="control-group">
                     <!-- Username -->
@@ -119,7 +129,7 @@
                 <div class="control-group">
                     <!-- Button -->
                     <div class="controls">
-                        <button class="btn btn-success">Register</button>
+                        <button class="btn btn-success" style="background-color: #0067A3; box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Register</button>
                     </div>
                 </div>
             </fieldset>
