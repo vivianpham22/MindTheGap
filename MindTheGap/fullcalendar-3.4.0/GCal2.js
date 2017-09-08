@@ -48,7 +48,7 @@
         if (isSignedIn) {
             authorizeButton.style.display = 'none';
             signoutButton.style.display = 'block';
-            //listUpcomingEvents();
+            listUpcomingEvents();
         } else {
             authorizeButton.style.display = 'block';
             signoutButton.style.display = 'none';
@@ -62,50 +62,108 @@
         gapi.auth2.getAuthInstance().signIn();
     }
 
-    ///**
+    //*
     // *  Sign out the user upon button click.
-    // */
+     
     function handleSignoutClick(event) {
         gapi.auth2.getAuthInstance().signOut();
     }
 
+    function listUpcomingEvents() {
+        gapi.client.calendar.events.list({
+            'calendarId': 'primary',
+            'timeMin': (new Date()).toISOString(),
+            'showDeleted': false,
+            'singleEvents': true,
+            'orderBy': 'startTime'
+        }).then(function (response) {
+            var events = response.result.items;
 
+            if (events.length > 0) {
+                for (i = 0; i < events.length; i++) {
+                    var event = events[i];
+                    var when = event.start.dateTime;
+                    if (!when) {
+                        when = "All Day";
+                    }
+                    //START OF TEST
+                    var data = {
+                        EventSummary: event.summary,
+                        EventLocation: event.location,
+                        EventDescription: event.description,
+                        EventStart: when,
+                        EventEnd: event.end.dateTime,
+                        EventRecurrence: event.recurrence,
+                        EventReminders: event.reminders,
+                        EventColor: event.colorId
+                    };
+                    //alert(data.EventSummary);
+                    $.ajax({
+                        url: "GetUserEventInfo",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(data),
+                        success: function (mydata) {
+                            alert(mydata);
+                        }
 
-    //    function appendPre(message) {
-    //        var pre = document.getElementById('content');
-    //        var textContent = document.createTextNode(message + '\n');
-    //        pre.appendChild(textContent);
-    //    }
+                    });
+                    //return false;
+                    //END OF TEST
 
-    ///**
-    // * Print the summary and start datetime/date of the next ten events in
-    // * the authorized user's calendar. If no events are found an
-    // * appropriate message is printed.
-    // */
+                    //appendPre(event.summary + event.location + ' (' + when + ')' + event.end.dateTime)
+                }
+            } else {
+                appendPre('No upcoming events found.');
+            }
+        });
+    }
 
-    //function listUpcomingEvents() {
-    //    gapi.client.calendar.events.list({
-    //        'calendarId': 'primary',
-    //        'timeMin': (new Date()).toISOString(),
-    //        'showDeleted': false,
-    //        'singleEvents': true,
-    //        'orderBy': 'startTime'
-    //    }).then(function (response) {
-    //        var events = response.result.items;
-    //        appendPre('Upcoming events:');
+function listUpcomingEvents() {
+    gapi.client.calendar.events.list({
+        'calendarId': 'primary',
+        'showDeleted': false,
+        'singleEvents': true,
+        'orderBy': 'startTime'
+    }).then(function (response) {
+        var events = response.result.items;
 
-    //        if (events.length > 0) {
-    //            for (i = 0; i < events.length; i++) {
-    //                var event = events[i];
-    //                var when = event.start.dateTime;
-    //                if (!when) {
-    //                    when = event.start.date;
-    //                }
-    //                appendPre(event.summary + ' (' + when + ')' + event.end.dateTime)
-    //            }
-    //        } else {
-    //            appendPre('No upcoming events found.');
-    //        }
-    //    });
-    //}
-    
+        if (events.length > 0) {
+            for (i = 0; i < events.length; i++) {
+                var event = events[i];
+                var when = event.start.dateTime;
+                if (!when) {
+                    when = "All Day";
+                }
+                //START OF TEST
+                var data = {
+                    EventSummary: event.summary,
+                    EventLocation: event.location,
+                    EventDescription: event.description,
+                    EventStart: when,
+                    EventEnd: event.end.dateTime,
+                    EventRecurrence: event.recurrence,
+                    EventReminders: event.reminders,
+                    EventColor: event.colorId
+                };
+                //alert(data.EventSummary);
+                $.ajax({
+                    url: "GetUserEventInfo",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+                    success: function (mydata) {
+                        alert(mydata);
+                    }
+
+                });
+                //return false;
+                //END OF TEST
+
+                //appendPre(event.summary + event.location + ' (' + when + ')' + event.end.dateTime)
+            }
+        } else {
+            appendPre('No upcoming events found.');
+        }
+    });
+}

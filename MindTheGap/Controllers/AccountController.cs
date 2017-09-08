@@ -79,6 +79,7 @@ namespace MindTheGap.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    Session["loggedInUser"] = "1";
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
