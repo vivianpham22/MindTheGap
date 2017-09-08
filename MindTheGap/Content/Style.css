@@ -1,4 +1,8 @@
-﻿/* Navbar */
+﻿.body {
+    background-color: antiquewhite;
+}
+
+/* Navbar */
 
 .navbar-brand { position: relative; z-index: 2; }
 
