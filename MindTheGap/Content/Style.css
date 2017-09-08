@@ -11,7 +11,7 @@
 .navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
 .navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
 .navbar.navbar-inverse .nav-collapse { background-color: #222; }
-.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: rgba(0,0,0,0.18) 0px, 2px, 4px; }
 .nav-collapse>li { float: right; }
 
 .btn.btn-circle { border-radius: 50px; }
@@ -632,24 +632,16 @@ font-size: 24px;
 
 body, html {
     height: 100%;
+    margin: 0;
 }
 
-.parallax {
+.bg {
     /* The image used */
     background-image: url('simple calendar.png');
     /* Full height */
-    height: 100%;
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
+    height: 50%;
+    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
-@media only screen and (max-device-width: 1024px) {
-    .parallax {
-        background-attachment: scroll;
-    }
-}
- 
