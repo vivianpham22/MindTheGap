@@ -1,0 +1,70 @@
+﻿@model MindTheGap.Models.Event
+
+@{
+    ViewBag.Title = "Daily";
+}
+
+<div class="container">
+    <div class="row">
+        <div id="calendar" class="col-md-8"></div>
+        <div class="col-md-4">
+            <button id="gaps-button" style="display: block;">Find the Gaps</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+        //loads when the dom is loaded
+        $(document).ready(function () {
+            var getEvents = [];
+            //getting information from the database
+            //notice the get request
+            $.ajax({
+                type: "GET",
+                url: "GetCalendarDatabase",
+                //THERE GOES JSON PROPERTY DATA. WEEZ PASSIN DAT KEY VALUE PAIR
+                success: function (Data) {
+                    $.each(Data, function (key, value) {
+                        //object
+                        getEvents.push({
+                            // title/description/start/end/color are full calendar keywords must have
+                            //summary/description/starttime/endtime/color are fields in yr table
+                            //MOMENT IS SPECIAL I SENT YOU A LINK
+                            title: value.summary,
+                            description: value.description,
+                            start: moment(value.starttime),
+                            end: moment(value.endtime),
+                            color: value.colorId,
+                            editable: true,
+                            startEditable: true,
+                            durationEditable: true,
+                            resourceEditable: true
+                        });
+                    })
+                    GenerateCalendar(getEvents);
+                },
+                error: function (error) {
+                    alert('failed');
+                }
+            })
+            var today = Date.now()
+            function GenerateCalendar(getEvents) {
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'agendaDay,agendaWeek,month'
+                    },
+                    defaultDate: today,
+                    defaultView: 'agendaDay',
+                    events: getEvents
+                })
+            }
+        })
+    });
+</script>
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
