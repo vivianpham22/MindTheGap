@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7033890a279b4c2f8475dd3d3d684497" Name="Diagram1">
+      <Diagram DiagramId="7033890a279b4c2f8475dd3d3d684497" Name="Diagram1" ZoomLevel="55">
         <EntityTypeShape EntityType="MindTheGapModel.Event" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MindTheGapModel.Interest" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="MindTheGapModel.Progress" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
@@ -24,6 +24,7 @@
         <AssociationConnector Association="MindTheGapModel.FK_Progress_AspNetUsers" />
         <AssociationConnector Association="MindTheGapModel.FK_UserLevel_AspNetUsers" />
         <AssociationConnector Association="MindTheGapModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="MindTheGapModel.Gap" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

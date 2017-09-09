@@ -119,10 +119,10 @@ function listUpcomingEvents() {
         }
     });
 }
-
-gapsButton.onclick = function () {
+gapsButton.onclick = findGapsClick;
+function findGapsClick(event) {
     $.ajax({
-        url: 'FindGaps',
+        url: findGap,
     }).done(function () {
         alert('Added');
     });

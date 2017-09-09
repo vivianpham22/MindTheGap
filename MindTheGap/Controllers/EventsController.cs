@@ -98,11 +98,11 @@ namespace MindTheGap.Controllers
                 return new JsonResult {Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
-
         public ActionResult Gaps()
         {
             //This command executes the SQL query against the database
-            db.Database.ExecuteSqlCommand("SELECT* INTO Gaps FROM (SELECT endtime GapStart, LEAD(starttime) OVER(ORDER BY starttime) GapEnd FROM[Event] WHERE starttime < endtime) AS Gaps");
+            //db.Database.ExecuteSqlCommand("DROP TABLE Gap");
+            db.Database.ExecuteSqlCommand("SELECT* INTO Gap FROM (SELECT endtime GapStart, LEAD(starttime) OVER(ORDER BY starttime) GapEnd FROM[Event] WHERE starttime < endtime) AS Gaps");
 
             //We don't have anything we need to return to the view. We could replace this with a redirect action if we want.
             return View();
