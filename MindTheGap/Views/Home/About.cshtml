@@ -1,13 +1,25 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿
+@*@{
+        ViewBag.Title = "About";
+    }
+    <h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>*@
 
-<p>Use this area to provide additional information.</p>
+@*<p>
+        Mind the Gap is Lorem ipsum dolor sit amet, ad utinam democritum efficiendi eos, nostrud praesent id vis. Ne nonumy laboramus duo, agam vocent electram ad eos, qui ex velit iudico dignissim. In latine diceret mea, ex pro modo appareat constituto, at atqui essent mentitum nec. Pro ex adhuc dicam conclusionemque.
+
+        Est et novum verterem. Ei mandamus postulant eum, tation eripuit scaevola ad his. In utamur honestatis mea, id graeci impedit nostrum mel, commodo repudiandae te usu. Sit ex etiam errem rationibus, eos an consetetur adversarium liberavisse. Vix in sumo nusquam efficiendi, eum ut vocibus menandri.
+
+        Verear volutpat efficiantur mei an, per an possit adolescens, ubique dolorum inermis vim an. Ad aliquam recusabo cum, sea te melius disputando. Te agam nibh lobortis usu, eos meis civibus ad. Veri insolens partiendo eam id.
+
+        At vix cibo vivendo explicari. Ea vix timeam numquam, sit at dictas pertinax volutpat, cum ei clita accommodare. At nec oratio erroribus, everti aliquip accommodare pro ne, ex has case ocurreret. In nec putant meliore, mei legimus minimum molestie ei. Cum ad purto ullum dictas, sed an modus dicat mollis, est meis repudiandae eu. Solum brute malis pro ex, minimum gubergren dissentias nam at.
+
+        Sit cu forensibus appellantur consequuntur, cu noster corrumpit evertitur sed, ea vel liber erant. Sed malis fabellas principes et, usu alia ocurreret no. Nostro principes sed ex. Et mei albucius splendide, id ius odio propriae tincidunt, quo diam modus ad.
+    </p>*@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title></title>
     <meta charset="utf-8" />
     <!--Collapsing Modal-->
@@ -23,63 +35,67 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <!--My Script-->
-    <script src="MyScript.js"></script>
+    <!--Font Style Sheet-->
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Didact+Gothic|Encode+Sans+Semi+Expanded|Hind+Madurai|Julius+Sans+One|Mandali|NTR|Pavanam|Questrial|Ramabhadra|Tauri|Wire+One" rel="stylesheet">
 
     <!--Bootstrap Style Sheets-->
     <link href="Style.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <!--Font Style Sheet-->
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/Style2.css" rel="stylesheet" />
+   
+    <!--JavaScript Sheets-->
+    <script src="~/Scripts/MyScript.js"></script>
+    <script src="~/Scripts/MyScript2.js"></script>
 
 
 </head>
 <body>
-    <!-- Navbar with Sign-in Ability -->
-    @*<nav class="navbar navbar-default">
+
+    <div class="jumbotron jumbotron-sm" style="background-color:#999999; box-shadow: rgba(0,0,0,0.18) 0px 2px 4px; font-family: 'Questrial', sans-serif; color:white; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="http://localhost:54261/Index.html">Mind The Gap</a>
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    <h1 class="h1">
+                        How it works.  @*<small>Feel free to contact us</small>*@
+                    </h1>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse-2">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="http://localhost:54261/Index.html">Home</a></li>
-                    <li><a href="http://localhost:54261/ProfilePage.html">Profile</a></li>
-                    <li><a href="http://localhost:54261/HowItWorks.html">How It Works</a></li>
-                    <li><a href="http://localhost:54261/FAQ.html">FAQ</a></li>
-                    <li><a href="http://localhost:54261/Contact.html">Contact</a></li>
-                    <li><a href="http://localhost:54261/Register.html">Register</a></li>
-                    <li>
-                        <a class="btn btn-default btn-outline btn-circle" data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
-                    </li>
-                </ul>
-                <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
-                    <form class="navbar-form navbar-right form-inline" role="form">
-                        <div class="form-group">
-                            <label class="sr-only" for="Email">Email</label>
-                            <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="Password">Password</label>
-                            <input type="password" class="form-control" id="Password" placeholder="Password" required />
-                        </div>
-                        <button type="submit" class="btn btn-success">Sign in</button>
-                    </form>
-                </div>*@
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container -->
-    </nav><!-- /.navbar -->
+        </div>
+    </div>
+
+    @*<p>
+            Mind the Gap is Lorem ipsum dolor sit amet, ad utinam democritum efficiendi eos, nostrud praesent id vis. Ne nonumy laboramus duo, agam vocent electram ad eos, qui ex velit iudico dignissim. In latine diceret mea, ex pro modo appareat constituto, at atqui essent mentitum nec. Pro ex adhuc dicam conclusionemque.
+
+            Est et novum verterem. Ei mandamus postulant eum, tation eripuit scaevola ad his. In utamur honestatis mea, id graeci impedit nostrum mel, commodo repudiandae te usu. Sit ex etiam errem rationibus, eos an consetetur adversarium liberavisse. Vix in sumo nusquam efficiendi, eum ut vocibus menandri.
+
+            Verear volutpat efficiantur mei an, per an possit adolescens, ubique dolorum inermis vim an. Ad aliquam recusabo cum, sea te melius disputando. Te agam nibh lobortis usu, eos meis civibus ad. Veri insolens partiendo eam id.
+
+            At vix cibo vivendo explicari. Ea vix timeam numquam, sit at dictas pertinax volutpat, cum ei clita accommodare. At nec oratio erroribus, everti aliquip accommodare pro ne, ex has case ocurreret. In nec putant meliore, mei legimus minimum molestie ei. Cum ad purto ullum dictas, sed an modus dicat mollis, est meis repudiandae eu. Solum brute malis pro ex, minimum gubergren dissentias nam at.
+
+            Sit cu forensibus appellantur consequuntur, cu noster corrumpit evertitur sed, ea vel liber erant. Sed malis fabellas principes et, usu alia ocurreret no. Nostro principes sed ex. Et mei albucius splendide, id ius odio propriae tincidunt, quo diam modus ad.
+        </p>*@
 
 
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Calendar Month View</h2>
+                <p>Mind the gap syncs with your Google Calendar to populate all of your scheduled events</p>
+                <img src="~/Content/Images/simple calendar.png" class="img-rounded" alt="Month View" width="480" height="236">
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <h2>Calendar Day View</h2>
+                <p>Within your schedule, Mind the Gap finds the down times in your schedule and suggests things you have entered as "interests."</p>
+                <img src="~/Content/Images/Calendar day view.png" class="img-rounded" alt="Day View" width="304" height="236">
+            </div>
+        </div>
+    </div>
 
 
 </body>

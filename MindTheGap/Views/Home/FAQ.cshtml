@@ -20,26 +20,26 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <!--My Script-->
-    <script src="MyScript.js"></script>
+    <!-- Font Style Sheet -->
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Didact+Gothic|Encode+Sans+Semi+Expanded|Hind+Madurai|Julius+Sans+One|Mandali|NTR|Pavanam|Questrial|Ramabhadra|Tauri|Wire+One" rel="stylesheet">
 
     <!--Bootstrap Style Sheets-->
-    <link href="Style.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/Style2.css" rel="stylesheet" />
 
-   <!-- Font Style Sheet -->
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Didact+Gothic|Encode+Sans+Semi+Expanded|Hind+Madurai|Julius+Sans+One|Mandali|NTR|Pavanam|Questrial|Ramabhadra|Tauri|Wire+One" rel="stylesheet">
-
+    <!--JavaScript Sheets-->
+    <script src="~/Scripts/MyScript.js"></script>
+    <script src="~/Scripts/MyScript2.js"></script>
 
 
 </head>
-<body>   
+<body>
     <!-- Navbar with Sign-in Ability -->
-    <nav class="navbar navbar-default" style="font-family: 'Questrial', sans-serif; color:white; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
-        <div class="container" style="background-color:#E7E8E2;">
+    <nav class="navbar navbar-default navbar-fixed-top" style="font-family: 'Questrial', sans-serif; color:white; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
+        <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
                     <span class="sr-only">Toggle navigation</span>
@@ -77,71 +77,74 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
     </nav><!-- /.navbar -->
-<div class="container">
-    <div class="body">
-        <div class='centerplease'>
-            Mind the Gap Frequently Asked Questions
-        </div>
-        <br>
-        <div class="content">
-            <div>
-                <input type="checkbox" id="question1" name="q" class="questions">
-                <div class="plus">+</div>
-                <label for="question1" class="question">
-                    What does Mind the Gap do?
-                </label>
-                <div class="answers">
-                    Mind the Gap syncs with your Google Calendar, finds the gaps in your schedule, and suggests things that you'd rather be doing with your down time.
-                </div>
-            </div>
-            <div>
-                <input type="checkbox" id="question2" name="q" class="questions">
-                <div class="plus">+</div>
-                <label for="question2" class="question">
-                    Do I need to have a Google account?
-                </label>
-                <div class="answers">
-                    We do require users have a Google account to sync calendars seamlessly. They are free and easy to create. You can create one <a href="https://accounts.google.com/SignUp?continue=https%3A%2F%2Fwww.google.com%2F&hl=en">here.</a>
-                </div>
-            </div>
-
-            <div>
-                <input type="checkbox" id="question3" name="q" class="questions">
-                <div class="plus">+</div>
-                <label for="question3" class="question">
-                    Do I need to enter events/interests in Google *and* Mind the Gap?
-                </label>
-                <div class="answers">
-                    You do not need to enter information into both. Because of our syncing, if you enter it once, it'll show up on both.
-                </div>
-
-            </div>
-            <div>
-                <input type="checkbox" id="question4" name="q" class="questions">
-                <div class="plus">+</div>
-                <label for="question4" class="question">
-                    How easy is it to manage the calendar and events?
-                </label>
-                <div class="answers">
-                    Your tasks and interests are very easy to manage within the app. Just
+    <div class="container">
+        <div class="jumbotron jumbotron-sm" style="background-color:#999999; box-shadow: rgba(0,0,0,0.18) 0px 2px 4px; font-family: 'Questrial', sans-serif; color:white; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                        <h1 class="h1">
+                            Frequently asked questions.  @*<small>Feel free to contact us</small>*@
+                        </h1>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div> <!-- end of body !-->
-    <!--<div class="footer">
-        <ul class="contact">
-            <li> RU S.E.R.V.S. </li>
-            <li> <a href="mailto:ruservs@gmail.com?Subject=Website%20Contact" target="_top">E-mail Us</a> </li>
-            <li> 848-932-VETS </li>
-        </ul>
-        <div class="copyright">
-            <ul>
-            Copyright © 2015, Rutgers, The State University of New Jersey, an equal opportunity, affirmative action institution.
-            </ul>
+
+    @*<div class="container" style="justify-content:center">*@
+    @*<div class="body">*@
+    <div class='centerplease' style="font-family: 'Questrial', sans-serif; color:white; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
+        Mind the Gap Frequently Asked Questions
+    </div>
+    <br>
+    <div class="content" style="font-family: 'Questrial', sans-serif; color:white; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
+        >
+        <div>
+            <input type="checkbox" id="question1" name="q" class="questions">
+            <div class="plus">+</div>
+            <label for="question1" class="question">
+                What does Mind the Gap do?
+            </label>
+            <div class="answers">
+                Mind the Gap syncs with your Google Calendar, finds the gaps in your schedule, and suggests things that you'd rather be doing with your down time.
+            </div>
         </div>
-        </div>-->
-        <!-- end of footer !-->
+        <div>
+            <input type="checkbox" id="question2" name="q" class="questions">
+            <div class="plus">+</div>
+            <label for="question2" class="question">
+                Do I need to have a Google account?
+            </label>
+            <div class="answers">
+                We do require users have a Google account to sync calendars seamlessly. They are free and easy to create. You can create one <a href="https://accounts.google.com/SignUp?continue=https%3A%2F%2Fwww.google.com%2F&hl=en">here.</a>
+            </div>
+        </div>
+
+        <div>
+            <input type="checkbox" id="question3" name="q" class="questions">
+            <div class="plus">+</div>
+            <label for="question3" class="question">
+                Do I need to enter events/interests in Google *and* Mind the Gap?
+            </label>
+            <div class="answers">
+                You do not need to enter information into both. Because of our syncing, if you enter it once, it'll show up on both.
+            </div>
+
+        </div>
+        <div>
+            <input type="checkbox" id="question4" name="q" class="questions">
+            <div class="plus">+</div>
+            <label for="question4" class="question">
+                How easy is it to manage the calendar and events?
+            </label>
+            <div class="answers">
+                Your tasks and interests are very easy to manage within the app. Just
+            </div>
+        </div>
+    </div>
+    </div>
+    </div> <!-- end of body !-->
+    
 
 </body>
 </html>
