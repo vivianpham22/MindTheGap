@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.Globalization;
 using System.Collections.Generic;
+using System.Data;
 
 namespace MindTheGap.Controllers
 {
@@ -26,7 +27,8 @@ namespace MindTheGap.Controllers
         [HttpPost]
         public JsonResult GetUserEventInfo(EventsController events)
         {
-
+            //var today = DateTime.Now.ToString();
+            //db.Database.ExecuteSqlCommand("Delete Event");
             DateTime startDateResult;
             DateTime endDateResult;
 
@@ -42,20 +44,20 @@ namespace MindTheGap.Controllers
             string color = events.EventColor;
             string AllInfo;
 
-            //Event newEvent = new Event();
-            //newEvent.userId = "c03d4c0a-ee82-4980-ad00-bb4cb16f99ca";
-            //newEvent.summary = summary;
-            //newEvent.location = location;
-            //newEvent.description = description;
-            //DateTime.TryParse(startTime, out startDateResult);
-            //newEvent.starttime = startDateResult;
-            //DateTime.TryParse(endTime, out endDateResult);
-            //newEvent.endtime = endDateResult;
-            //newEvent.recurrence = recurrence;
-            //newEvent.reminders = reminders;
-            //newEvent.colorId = color;
-            //db.Events.Add(newEvent);
-            //db.SaveChanges();
+            Event newEvent = new Event();
+            newEvent.userId = "c03d4c0a-ee82-4980-ad00-bb4cb16f99ca";
+            newEvent.summary = summary;
+            newEvent.location = location;
+            newEvent.description = description;
+            DateTime.TryParse(startTime, out startDateResult);
+            newEvent.starttime = startDateResult;
+            DateTime.TryParse(endTime, out endDateResult);
+            newEvent.endtime = endDateResult;
+            newEvent.recurrence = recurrence;
+            newEvent.reminders = reminders;
+            newEvent.colorId = color;
+            db.Events.Add(newEvent);
+            db.SaveChanges();
 
             if (startTime == "All Day")
             {
@@ -83,59 +85,12 @@ namespace MindTheGap.Controllers
             return View(events.ToList());
         }
 
-        //public static List<Task_has_UsersModel> LoadAllTasks(string start, string end, string uname)
-        //{
-
-        //    MindTheGapEntities db = new MindTheGapEntities();
-
-        //    var uid = (from i in db.UserProfiles
-        //               where i.UserName == uname
-        //               select i.UserId).FirstOrDefault();
-        //    int userId = Convert.ToInt32(uid);
-        //    // var culture = System.Globalization.CultureInfo.CurrentCulture;
-        //    var sql = "SELECT * from task_has_users where UserId = " + userId;
-        //    var data = Database.Open("DefaultConnection").Query(sql);
-
-        //    List<Task_has_UsersModel> result = new List<Task_has_UsersModel>();
-        //    foreach (var item in data)
-        //    {
-        //        Task_has_UsersModel model = new Task_has_UsersModel();
-        //        model.Task_Id = Convert.ToInt32(item.Task_Id);
-        //        model.Project_Id = Convert.ToInt32(item.ProjectId);
-        //        //  model.start_time = Convert.ToDateTime(item.start_time);
-        //        model.start_time = (item.start_time).ToString("yyyy-MM-dd HH-mm-ss");
-        //        model.end_time = (item.end_time).ToString("yyyy-MM-dd HH-mm-ss");
-        //        model.title = item.title;
-        //        result.Add(model);
-        //    }
-        //    return result;
-        //}
-        //[HttpGet]
-        //public JsonResult GetAllEvents(string start, string end)
-        //{
-        //    string uname = (Session["UserName"]).ToString();
-        //    var ApptListForDate = LoadAllTasks(start, end, uname);
-        //    var eventList = from e in ApptListForDate
-        //                    select new
-        //                    {
-        //                        id = e.Task_Id,
-        //                        title = e.title,
-        //                        start = e.start_time,
-        //                        end = e.end_time,
-        //                        allDay = false,
-        //                        color = "#008000",
-        //                        //allDay=false,
-        //                        className = "label-important",
-        //                    };
-        //    var rows = eventList.ToArray();
-
-        //    return Json(rows, JsonRequestBehavior.AllowGet);
-        //}
-
-
-
-
-
+        public ActionResult Daily()
+        {
+           
+            return View();
+        }
+        
         public ActionResult GetCalendarDatabase()
         {
             //using (MindTheGapEntities db = new MindTheGapEntities())
@@ -144,6 +99,18 @@ namespace MindTheGap.Controllers
                 return new JsonResult {Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+        public ActionResult Gaps()
+        {
+            var today = DateTime.Now.ToString("dd-MM-yyyy");
+            //This command executes the SQL query against the database
+            db.Database.ExecuteSqlCommand("DROP TABLE Gap");
+            /*AND starttime LIKE 'today'*/
+            db.Database.ExecuteSqlCommand("SELECT* INTO Gap FROM (SELECT MAX(endtime) OVER(ORDER BY starttime) GapStart, LEAD(starttime) OVER(ORDER BY starttime) GapEnd FROM[Event] WHERE starttime < endtime) AS Gaps");
+
+            //We don't have anything we need to return to the view. We could replace this with a redirect action if we want.
+            return View();
+        }
+
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {

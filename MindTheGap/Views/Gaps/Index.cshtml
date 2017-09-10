@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MindTheGap.Models.Gap>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gapSummary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gapStartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gapEndTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gapSummary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gapStartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gapEndTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GapID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GapID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GapID })
+        </td>
+    </tr>
+}
+
+</table>
