@@ -27,7 +27,8 @@ namespace MindTheGap.Controllers
         [HttpPost]
         public JsonResult GetUserEventInfo(EventsController events)
         {
-
+            //var today = DateTime.Now.ToString();
+            //db.Database.ExecuteSqlCommand("Delete Event");
             DateTime startDateResult;
             DateTime endDateResult;
 
@@ -100,9 +101,11 @@ namespace MindTheGap.Controllers
         }
         public ActionResult Gaps()
         {
+            var today = DateTime.Now.ToString("dd-MM-yyyy");
             //This command executes the SQL query against the database
-            //db.Database.ExecuteSqlCommand("DROP TABLE Gap");
-            db.Database.ExecuteSqlCommand("SELECT* INTO Gap FROM (SELECT endtime GapStart, LEAD(starttime) OVER(ORDER BY starttime) GapEnd FROM[Event] WHERE starttime < endtime) AS Gaps");
+            db.Database.ExecuteSqlCommand("DROP TABLE Gap");
+            /*AND starttime LIKE 'today'*/
+            db.Database.ExecuteSqlCommand("SELECT* INTO Gap FROM (SELECT MAX(endtime) OVER(ORDER BY starttime) GapStart, LEAD(starttime) OVER(ORDER BY starttime) GapEnd FROM[Event] WHERE starttime < endtime) AS Gaps");
 
             //We don't have anything we need to return to the view. We could replace this with a redirect action if we want.
             return View();
