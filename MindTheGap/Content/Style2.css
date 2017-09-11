@@ -645,3 +645,27 @@ form {
 	color:#000000;
     cursor:pointer;
 }
+#gaps-button {
+    background-color: #FBFBFB !important;
+    border-radius: 20px !important;
+    color:#717171;
+}
+.btn-info {
+    background-color: #FBFBFB !important;
+    color: #717171;
+}
+.btn {
+    background-color: #FBFBFB !important;
+    color: #717171;
+}
+#add {
+    color: #717171;
+    border-radius: 20px !important;
+}
+#clear {
+    color: #717171;
+    border-radius: 20px !important;
+}
+#calendar{
+    margin-top:30px;
+}

@@ -5,13 +5,23 @@
 }
 
 <div class="container">
-    <div class="row">
+    <div class="row" style="text-align:center;">
         <div id="calendar" class="col-md-8"></div>
         <div class="col-md-4">
-            <button id="gaps-button" style="display: block;">Find the Gaps</button>
+                    <h2 style="font-family: 'Questrial', sans-serif;">To Do List</h2>
+                    <form name="checkListForm" style="font-family: 'Questrial', sans-serif;">
+                        <input type="text" name="checkListItem" placeholder="Add Item..." />
+                    </form>
+                    <button type="button" id="add" class="btn btn-info" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Add</button>
+                    <button type="button" id="clear" title="Clear checked items" class="btn btn-default" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Clear</button>
+                    <br /><br />
+                    <div class="list" style="font-family: 'Questrial', sans-serif;"></div>
+                </div>
+                <div class="col-md-4" style="font-family: 'Questrial', sans-serif;"></div>
+        <button id="gaps-button" class="btn btn-info" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Find the Gaps</button>
+            </div>
         </div>
-    </div>
-</div>
+
 <script>
     $(document).ready(function () {
 
