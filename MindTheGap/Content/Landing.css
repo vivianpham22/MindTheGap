@@ -1,4 +1,9 @@
-﻿.inner {
+﻿body {
+    margin: 0;
+    padding-top: 0px;
+}
+
+.inner {
     padding-top: 150px;
 }
 
@@ -6,6 +11,7 @@
     background-color: transparent;
     background: transparent;
     border-color: transparent;
+    padding-top: 10px;
 }
 
     .navbar li {
@@ -20,11 +26,10 @@
 }
 
 .landing {
-    /*background-image: url('Images/gap1.jpg');*/
     background-image: url('Images/workspace1.jpeg');
     background-size: cover;
-    padding: 0px 0 150px 0;
-    height: 800px;
+    padding: 0px 0px 200px 0px;
+    height: auto;
     width: 100%;
     /*Paralax Scrolling*/
     /*background-attachment: fixed;
@@ -61,5 +66,3 @@
 .howItWorks .h1 {
     padding: 20px 0px 10px 0px;
 }
-
-    

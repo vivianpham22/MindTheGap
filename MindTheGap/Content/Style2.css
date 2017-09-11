@@ -817,7 +817,17 @@ form {
     margin: 0;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    
+    border-bottom-color: black;
+    border-left-color: black;
+    border-right-color: black;
+    border-bottom: 1px;
+    border-left: 1px;
+    border-right: 1px;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    vertical-align: middle;
+    line-height:25px;
 }
 .userName {
     width: 150px;
@@ -829,6 +839,17 @@ form {
     margin: 0;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    border-top-color: black;
+    border-left-color: black;
+    border-right-color: black;
+    border-top: 1px;
+    border-left: 1px;
+    border-right: 1px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    vertical-align: middle;
+    line-height: 25px;
 }
 
 .messageDiv {
@@ -837,6 +858,7 @@ form {
     margin-right: auto;
     text-align: center;
     width: 150px;
+ 
 }
 
 .progressRow {

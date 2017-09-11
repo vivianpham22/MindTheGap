@@ -26,16 +26,16 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/Style.css" rel="stylesheet" />
     <link href="~/Content/Style2.css" rel="stylesheet" />
-    <link href="~/Content/Landing.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Landing.css")" rel="stylesheet" type="text/css" />
     <!--JavaScript Sheets-->
     <script src="~/Scripts/MyScript.js"></script>
     <script src="~/Scripts/MyScript2.js"></script>
 </head>
 <body>
     <!-- Navbar with Sign-in Ability -->
-    <section class="landing">
+    <header>
         <nav class="navbar navbar-default navbar-fixed-top" style="font-family: 'Questrial', sans-serif; font:16px; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
-            <div class="container" style="padding-top: 0px;padding-right: 0px;padding-left: 0px;">
+            <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
                         <span class="sr-only">Toggle navigation</span>
@@ -43,25 +43,25 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost:26262/Home/About">MIND THE GAP</a>
+                    <a class="navbar-brand" href="http://localhost:26262/Home/Index" style="color:white;">MIND THE GAP</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-2">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><button id="authorize-button" class="btn btn-default btn-outline btn-circle" style="display:block">Sign in</button></li>
-                        <li><button id="signout-button" class="btn btn-default btn-outline btn-circle" style="display:none">Sign Out</button></li>
-
-                    </ul>
+                       
+          
+                       
                 </div><!-- /.navbar-collapse -->
-            </div>
-
-
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+    </header>
+    <section class="landing">
         <img class="img-responsive" />
         <div class="row" style="margin-right:0px;">
             <div class="container">
                 <div class="col-md-8 col-md-offset-2 text-center inner">
-                    <h1 style="color:white;font-family: 'Questrial', sans-serif;text-shadow: rgba(0,0,0,0.18) 4px 8px 12px;">Mind The Gap In Your Day</h1>
+                    <h1 style="color:white;font-family: 'Questrial', sans-serif">Mind The Gap In Your Day</h1>
                     <hr />
-                    <h2 style="color:white; font-family: 'Questrial', sans-serif;text-shadow: rgba(0,0,0,0.18) 4px 8px 12px">FIND WORK LIFE BALANCE</h2>
+                    <h2 style="color:white; font-family: 'Questrial', sans-serif">FIND WORK LIFE BALANCE</h2>
                     <br />
                     <br />
                     <a class="ghost-button" href="/Events/Daily" style="font-family: 'Questrial', sans-serif">Get Started</a>
@@ -69,5 +69,10 @@
             </div>
         </div>
     </section>
+    @*<footer>
+            <div class="container">
+                <center>&copy; 2017 Mind The Gap</center>
+            </div>
+        </footer>*@
 </body>
 </html>
