@@ -8,19 +8,22 @@
     <div class="row" style="text-align:center;">
         <div id="calendar" class="col-md-8"></div>
         <div class="col-md-4">
-                    <h2 style="font-family: 'Questrial', sans-serif;">To Do List</h2>
-                    <form name="checkListForm" style="font-family: 'Questrial', sans-serif;">
-                        <input type="text" name="checkListItem" placeholder="Add Item..." />
-                    </form>
-                    <button type="button" id="add" class="btn btn-info" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Add</button>
-                    <button type="button" id="clear" title="Clear checked items" class="btn btn-default" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Clear</button>
-                    <br /><br />
-                    <div class="list" style="font-family: 'Questrial', sans-serif;"></div>
-                </div>
-                <div class="col-md-4" style="font-family: 'Questrial', sans-serif;"></div>
-        <button id="gaps-button" class="btn btn-info" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Find the Gaps</button>
-            </div>
+            <h2 style="font-family: 'Questrial', sans-serif;">To Do List</h2>
+            <form name="checkListForm" style="font-family: 'Questrial', sans-serif;">
+                <input type="text" name="checkListItem" placeholder="Add Item..." />
+            </form>
+            <button type="button" id="add" class="btn btn-info" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Add</button>
+            <button type="button" id="clear" title="Clear checked items" class="btn btn-default" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Clear</button>
+            <br /><br />
+            <div class="list" style="font-family: 'Questrial', sans-serif;"></div>
         </div>
+        <button id="gaps-button" class="btn btn-info" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Find the Gaps</button>
+        <button id="show-gaps-button" class="btn btn-info" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Show Gaps</button>
+        <div class="row">
+            <span id="gaps"></span>
+        </div>
+    </div>
+</div>
 
 <script>
     $(document).ready(function () {
@@ -73,6 +76,39 @@
             }
         })
     });
+</script>
+<script>
+        $(document).ready(function () {
+            $("#show-gaps-button").click(
+                function () {
+                    $.get("@Url.Action("TestJson","Events")", function (serverResponse) {
+        var jsonTest = JSON.parse(serverResponse);
+        console.log(jsonTest);
+
+        $.each(jsonTest, function (inx, val) {
+            var userNameClass = ["userName"];
+            var h6 = $("<h6>", { id: "h6" + inx, "class": userNameClass });
+
+            var messageClass = ["message"];
+            var p = $("<p>", { id: "p" + inx, "class": messageClass });
+
+            var divClass = ["messageDiv col-md-2"];
+            var div = $("<div>", { id: "div" + inx, "class": divClass });
+
+            h6.html("<h6 class=\"userName\">" + val.GapStart + "</h6>");
+            p.html("<p class=\"message\">" + val.GapEnd + "</p>");
+            div.html(h6.html() + p.html());
+
+            $("#gaps").append(div);
+            console.log(serverResponse);
+
+
+        });
+
+    });
+                });
+
+        });
 </script>
 <script type="text/javascript">
 

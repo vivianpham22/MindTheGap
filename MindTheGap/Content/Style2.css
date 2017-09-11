@@ -669,3 +669,34 @@ form {
 #calendar{
     margin-top:30px;
 }
+.message {
+    width: 70px;
+    background-color: yellow;
+    color: black;
+    min-height: 25px;
+    text-align: center;
+    font-size: 10px;
+    margin: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.userName {
+    width: 70px;
+    background-color: purple;
+    color: #FFFFCC;
+    height: 25px;
+    text-align: center;
+    font-size: 10px;
+    margin: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.messageDiv {
+    margin: 15px;
+    margin-left: 30px;
+    margin-right: auto;
+    text-align: center;
+    width: 150px;
+}

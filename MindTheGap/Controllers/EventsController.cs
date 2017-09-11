@@ -48,7 +48,14 @@ namespace MindTheGap.Controllers
             newEvent.userId = "c03d4c0a-ee82-4980-ad00-bb4cb16f99ca";
             newEvent.summary = summary;
             newEvent.location = location;
-            newEvent.description = description;
+            if (description != null && description.Length > 500)
+            { 
+            newEvent.description = description.Substring(0,500);
+            }
+            else
+            {
+                newEvent.description = description;
+            }
             DateTime.TryParse(startTime, out startDateResult);
             newEvent.starttime = startDateResult;
             DateTime.TryParse(endTime, out endDateResult);
@@ -110,7 +117,23 @@ namespace MindTheGap.Controllers
             //We don't have anything we need to return to the view. We could replace this with a redirect action if we want.
             return View();
         }
+        public JsonResult TestJson()
+        {
+            
+            var Gaps = (from Gap in db.Gaps
+                       orderby
+                       Gap.GapStart ascending
+                       select new
+                       {
+                           Gap.GapStart,
+                           Gap.GapEnd,
+                       }).Take(10);
 
+            var output = JsonConvert.SerializeObject(Gaps.ToList());
+
+            //Finally, we return Json to the view
+            return Json(output, JsonRequestBehavior.AllowGet);
+        }
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
