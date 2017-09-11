@@ -71,6 +71,9 @@ function handleSignoutClick(event) {
 }
 
 function listUpcomingEvents() {
+    $.ajax({
+        url: 'EventDuplicates',
+    });
     gapi.client.calendar.events.list({
         'calendarId': 'primary',
         'timeMin': (new Date()).toISOString(),
@@ -127,3 +130,4 @@ function findGapsClick(event) {
         alert('Added');
     });
 };
+

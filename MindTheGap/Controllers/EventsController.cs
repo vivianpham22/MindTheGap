@@ -23,12 +23,13 @@ namespace MindTheGap.Controllers
         public bool EventReminders { get; set; }
         public string EventColor { get; set; }
 
+
         //START OF TEST
         [HttpPost]
         public JsonResult GetUserEventInfo(EventsController events)
         {
             //var today = DateTime.Now.ToString();
-            //db.Database.ExecuteSqlCommand("Delete Event");
+
             DateTime startDateResult;
             DateTime endDateResult;
 
@@ -40,7 +41,7 @@ namespace MindTheGap.Controllers
 
             string endTime = events.EventEnd;
             string recurrence = events.EventRecurrence;
-            bool reminders = events.EventReminders;
+            bool reminders = false;
             string color = events.EventColor;
             string AllInfo;
 
@@ -49,8 +50,8 @@ namespace MindTheGap.Controllers
             newEvent.summary = summary;
             newEvent.location = location;
             if (description != null && description.Length > 500)
-            { 
-            newEvent.description = description.Substring(0,500);
+            {
+                newEvent.description = description.Substring(0, 500);
             }
             else
             {
@@ -77,14 +78,13 @@ namespace MindTheGap.Controllers
 
             return new JsonResult()
             {
-
             };
 
             //return Json(summary, JsonRequestBehavior.AllowGet);
         }
         //END OF TEST
 
-       
+
         // GET: Events
         public ActionResult Index()
         {
@@ -94,16 +94,18 @@ namespace MindTheGap.Controllers
 
         public ActionResult Daily()
         {
-           
+
             return View();
         }
-        
+        public void EventDuplicates()
+        {
+            db.Database.ExecuteSqlCommand("DELETE Event Where reminders = 0");
+        }
         public ActionResult GetCalendarDatabase()
         {
-            //using (MindTheGapEntities db = new MindTheGapEntities())
             {
                 var events = db.Events.ToList();
-                return new JsonResult {Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
         public ActionResult Gaps()
@@ -119,15 +121,15 @@ namespace MindTheGap.Controllers
         }
         public JsonResult TestJson()
         {
-            
+
             var Gaps = (from Gap in db.Gaps
-                       orderby
-                       Gap.GapStart ascending
-                       select new
-                       {
-                           Gap.GapStart,
-                           Gap.GapEnd,
-                       }).Take(10);
+                        orderby
+                        Gap.GapStart ascending
+                        select new
+                        {
+                            Gap.GapStart,
+                            Gap.GapEnd,
+                        }).Take(10);
 
             var output = JsonConvert.SerializeObject(Gaps.ToList());
 

@@ -1,0 +1,65 @@
+﻿.inner {
+    padding-top: 150px;
+}
+
+.navbar {
+    background-color: transparent;
+    background: transparent;
+    border-color: transparent;
+}
+
+    .navbar li {
+        color: #000
+    }
+
+.navbar-default {
+    background: transparent;
+    /*background-image: none;*/
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.landing {
+    /*background-image: url('Images/gap1.jpg');*/
+    background-image: url('Images/workspace1.jpeg');
+    background-size: cover;
+    padding: 0px 0 150px 0;
+    height: 800px;
+    width: 100%;
+    /*Paralax Scrolling*/
+    /*background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;*/
+    /*Border*/
+    border-color: #6caa24;
+}
+
+.ghost-button {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    padding: 15px 0px 0px 0px;
+    color: #fff;
+    border: 1px solid #fff;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+}
+
+    .ghost-button:hover,
+    .ghost-button:active {
+        /*background-color: #fff;*/
+        background-color: rgba(255, 255, 255, 0.4);
+        color: #000;
+        text-decoration: none;
+    }
+
+.landing .container {
+    padding-top: 40px;
+}
+
+.howItWorks .h1 {
+    padding: 20px 0px 10px 0px;
+}
+
+    

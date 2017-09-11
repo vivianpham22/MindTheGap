@@ -308,6 +308,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\Calendar day view.png" />
     <Content Include="Content\Images\simple calendar.png" />
+    <Content Include="Content\Images\workspace1.jpeg" />
+    <Content Include="Content\Landing.css" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\Style2.css" />
     <Content Include="favicon.ico" />

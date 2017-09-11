@@ -1,8 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    Layout = null;
 }
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,18 +12,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <!--JavaScript Sheets-->
-    <script src="MyScript.js"></script>
-    <script src="~/Scripts/MyScript.js"></script>
-    <script src="~/Scripts/MyScript2.js"></script>
-
+    <!--Font Style Sheet-->
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Didact+Gothic|Encode+Sans+Semi+Expanded|Hind+Madurai|Julius+Sans+One|Mandali|NTR|Pavanam|Questrial|Ramabhadra|Tauri|Wire+One" rel="stylesheet">
     <!--Bootstrap Style Sheets-->
     <link href="Style.css" rel="stylesheet" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -34,41 +26,48 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/Style.css" rel="stylesheet" />
     <link href="~/Content/Style2.css" rel="stylesheet" />
-
-    <!--Font Style Sheet-->
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Didact+Gothic|Encode+Sans+Semi+Expanded|Hind+Madurai|Julius+Sans+One|Mandali|NTR|Pavanam|Questrial|Ramabhadra|Tauri|Wire+One" rel="stylesheet">
-
+    <link href="~/Content/Landing.css" rel="stylesheet" />
+    <!--JavaScript Sheets-->
+    <script src="~/Scripts/MyScript.js"></script>
+    <script src="~/Scripts/MyScript2.js"></script>
 </head>
-
-
 <body>
-    <!--Calendar-->
-    <div class="row">
-        <div class="col-sm-8 col-md-8">
-            @*<button id="authorize-button" style="display: block;">Authorize</button>
-                <button id="signout-button" style="display: none;">Sign Out</button>*@
-            <h1 style="font-family: 'Questrial', sans-serif;">Events</h1>
-            <ul id='events'></ul>
-            <div id="calendar"></div>
-            <button id="authorize-button" style="display: block;">Authorize</button>
-            <button id="signout-button" style="display: none;">Sign Out</button>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <h2 style="font-family: 'Questrial', sans-serif;">To Do List</h2>
-                    <form name="checkListForm" style="font-family: 'Questrial', sans-serif;">
-                        <input type="text" name="checkListItem" placeholder="Add Item..." />
-                    </form>
-                    <button type="button" id="add" class="btn btn-info" style="background-color: #0067A3;color: white; box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Add</button>
-                    <button type="button" id="clear" title="Clear checked items" class="btn btn-default" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">clear</button>
-                    <br /><br />
-                    <div class="list" style="font-family: 'Questrial', sans-serif;"></div>
+    <!-- Navbar with Sign-in Ability -->
+    <section class="landing">
+        <nav class="navbar navbar-default navbar-fixed-top" style="font-family: 'Questrial', sans-serif; font:16px; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
+            <div class="container" style="padding-top: 0px;padding-right: 0px;padding-left: 0px;">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://localhost:26262/Home/About">MIND THE GAP</a>
                 </div>
-                <div class="col-md-4" style="font-family: 'Questrial', sans-serif;"></div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><button id="authorize-button" class="btn btn-default btn-outline btn-circle" style="display:block">Sign in</button></li>
+                        <li><button id="signout-button" class="btn btn-default btn-outline btn-circle" style="display:none">Sign Out</button></li>
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+
+
+        <img class="img-responsive" />
+        <div class="row" style="margin-right:0px;">
+            <div class="container">
+                <div class="col-md-8 col-md-offset-2 text-center inner">
+                    <h1 style="color:white;font-family: 'Questrial', sans-serif;text-shadow: rgba(0,0,0,0.18) 4px 8px 12px;">Mind The Gap In Your Day</h1>
+                    <hr />
+                    <h2 style="color:white; font-family: 'Questrial', sans-serif;text-shadow: rgba(0,0,0,0.18) 4px 8px 12px">FIND WORK LIFE BALANCE</h2>
+                    <br />
+                    <br />
+                    <a class="ghost-button" href="/Events/Daily" style="font-family: 'Questrial', sans-serif">Get Started</a>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 </body>
 </html>

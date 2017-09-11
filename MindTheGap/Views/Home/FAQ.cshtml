@@ -1,7 +1,4 @@
-﻿@{
-    Layout = null;
-}
-
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,28 +10,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
     <!-- Font Style Sheet -->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Didact+Gothic|Encode+Sans+Semi+Expanded|Hind+Madurai|Julius+Sans+One|Mandali|NTR|Pavanam|Questrial|Ramabhadra|Tauri|Wire+One" rel="stylesheet">
-
     <!--Bootstrap Style Sheets-->
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/Style.css" rel="stylesheet" />
     <link href="~/Content/Style2.css" rel="stylesheet" />
-
     <!--JavaScript Sheets-->
     <script src="~/Scripts/MyScript.js"></script>
     <script src="~/Scripts/MyScript2.js"></script>
-
-
 </head>
 <body>
     <!-- Navbar with Sign-in Ability -->
@@ -51,29 +41,16 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-2">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="http://localhost:26262/Home/Index">Home</a></li>
-                    <li><a href="http://localhost:26262/Home/Profile">Profile</a></li>
+                    <li><a href="http://localhost:26262/Events/Daily">Home</a></li>
+                    <li><a href="http://localhost:26262/Home/ProfilePage">Profile</a></li>
                     <li><a href="http://localhost:26262/Home/About">How It Works</a></li>
                     <li><a href="http://localhost:26262/Home/FAQ">FAQ</a></li>
                     <li><a href="http://localhost:26262/Home/Contact">Contact</a></li>
-                    <li><a href="http://localhost:26262/Account/Register">Register</a></li>
-                    <li>
-                        <a class="btn btn-default btn-outline btn-circle" data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
-                    </li>
+                    <li><a href="http://localhost:26262/Events/Create">Add Event</a></li>
+                    <li><button id="authorize-button" class="btn btn-default btn-outline btn-circle" style="display:block">Sign in</button></li>
+                    <li><button id="signout-button" class="btn btn-default btn-outline btn-circle" style="display:none">Sign Out</button></li>
+
                 </ul>
-                <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
-                    <form class="navbar-form navbar-right form-inline" role="form">
-                        <div class="form-group">
-                            <label class="sr-only" for="Email">Email</label>
-                            <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="Password">Password</label>
-                            <input type="password" class="form-control" id="Password" placeholder="Password" required />
-                        </div>
-                        <button type="submit" class="btn btn-success">Sign in</button>
-                    </form>
-                </div>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
     </nav><!-- /.navbar -->
@@ -82,7 +59,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-lg-12">
-                        <h1 class="h1">
+                        <h1 class="h1"style="text-align:center;text-shadow: rgba(0,0,0,0.18) 2px 4px 6px;">
                             Frequently asked questions.  @*<small>Feel free to contact us</small>*@
                         </h1>
                     </div>
@@ -90,7 +67,6 @@
             </div>
         </div>
     </div>
-
     @*<div class="container" style="justify-content:center">*@
     @*<div class="body">*@
     <div class='centerplease' style="font-family: 'Questrial', sans-serif; color:white; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
@@ -119,7 +95,6 @@
                 We do require users have a Google account to sync calendars seamlessly. They are free and easy to create. You can create one <a href="https://accounts.google.com/SignUp?continue=https%3A%2F%2Fwww.google.com%2F&hl=en">here.</a>
             </div>
         </div>
-
         <div>
             <input type="checkbox" id="question3" name="q" class="questions">
             <div class="plus">+</div>
@@ -129,7 +104,6 @@
             <div class="answers">
                 You do not need to enter information into both. Because of our syncing, if you enter it once, it'll show up on both.
             </div>
-
         </div>
         <div>
             <input type="checkbox" id="question4" name="q" class="questions">
@@ -144,7 +118,6 @@
     </div>
     </div>
     </div> <!-- end of body !-->
-    
 
 </body>
 </html>
