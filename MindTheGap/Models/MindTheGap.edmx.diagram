@@ -24,7 +24,6 @@
         <AssociationConnector Association="MindTheGapModel.FK_Progress_AspNetUsers" />
         <AssociationConnector Association="MindTheGapModel.FK_UserLevel_AspNetUsers" />
         <AssociationConnector Association="MindTheGapModel.AspNetUserRoles" />
-        <EntityTypeShape EntityType="MindTheGapModel.Gap" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

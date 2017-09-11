@@ -17,7 +17,6 @@ namespace MindTheGap.Models
     
     public partial class MindTheGapEntities : DbContext
     {
-      
         public MindTheGapEntities()
             : base("name=MindTheGapEntities")
         {
@@ -39,7 +38,6 @@ namespace MindTheGap.Models
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Gap> Gaps { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

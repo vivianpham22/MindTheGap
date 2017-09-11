@@ -233,7 +233,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
-    <Compile Include="Controllers\GapsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterestsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -259,9 +258,6 @@
       <DependentUpon>MindTheGap.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Event.cs">
-      <DependentUpon>MindTheGap.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Gap.cs">
       <DependentUpon>MindTheGap.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -535,11 +531,6 @@
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\Events\Daily.cshtml" />
-    <Content Include="Views\Gaps\Create.cshtml" />
-    <Content Include="Views\Gaps\Delete.cshtml" />
-    <Content Include="Views\Gaps\Details.cshtml" />
-    <Content Include="Views\Gaps\Edit.cshtml" />
-    <Content Include="Views\Gaps\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -83,15 +83,12 @@
           <Property Name="reminders" Type="bit" />
           <Property Name="completed" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Gaps">
-          <Key>
-            <PropertyRef Name="GapID" />
-          </Key>
-          <Property Name="GapID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="gapSummary" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="gapStartTime" Type="datetime" Nullable="false" />
-          <Property Name="gapEndTime" Type="datetime" Nullable="false" />
-        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'MindTheGap.dbo.Gap' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Gap">
+          <Property Name="GapStart" Type="datetime" />
+          <Property Name="GapEnd" Type="datetime" />
+        </EntityType>-->
         <EntityType Name="Interest">
           <Key>
             <PropertyRef Name="interestId" />
@@ -301,7 +298,6 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Gaps" EntityType="Self.Gaps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Interest" EntityType="Self.Interest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Progress" EntityType="Self.Progress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -509,7 +505,6 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="Gaps" EntityType="MindTheGapModel.Gap" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -675,15 +670,6 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="Gap">
-          <Key>
-            <PropertyRef Name="GapID" />
-          </Key>
-          <Property Name="GapID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="gapSummary" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="gapStartTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="gapEndTime" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -841,16 +827,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="MindTheGapModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="MindTheGapModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="Gaps">
-            <EntityTypeMapping TypeName="MindTheGapModel.Gap">
-              <MappingFragment StoreEntitySet="Gaps">
-                <ScalarProperty Name="gapEndTime" ColumnName="gapEndTime" />
-                <ScalarProperty Name="gapStartTime" ColumnName="gapStartTime" />
-                <ScalarProperty Name="gapSummary" ColumnName="gapSummary" />
-                <ScalarProperty Name="GapID" ColumnName="GapID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
