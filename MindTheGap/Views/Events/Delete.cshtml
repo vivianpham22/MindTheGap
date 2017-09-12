@@ -91,18 +91,18 @@
             @Html.DisplayFor(model => model.Interest.userId)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.AspNetUser.Email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AspNetUser.Email)
+            @Html.DisplayFor(model => model.AspNetUser.Email)*@
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+    @*@using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()*@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |

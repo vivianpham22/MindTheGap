@@ -769,6 +769,13 @@ form {
     color: #4c5c68 !important;
     border-radius: 0px;
 }
+.createBtn {
+    margin-top: 15px;
+    background-color: #4c5c68 !important;
+    color: #dcdcdd !important;
+    border-radius: 0px;
+    float:right;
+}
 #show-gaps-button {
     margin-top: 15px;
     background-color: #4c5c68 !important;
@@ -1219,4 +1226,26 @@ body {
 }
 .authBtn{
     margin-right:100px !important;
+}
+#toDoList {
+    background-image: url('Images/MTGHeaderLarge.png');
+}
+#createForm{
+    width:450px;
+    text-align:unset;
+}
+textarea#description{
+    width:500px;
+    height:125px;
+    min-height:125px;
+}
+.form-control {
+    border-radius: 0px;
+    border-color: rgb(169, 169, 169);
+    margin-top:17px;
+}
+#createForm{
+    margin-top:3px;
+    min-height:900px;
+
 }

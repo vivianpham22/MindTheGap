@@ -168,15 +168,17 @@ namespace MindTheGap.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                @event.userId = "c03d4c0a-ee82-4980-ad00-bb4cb16f99ca";
+                @event.colorId = "36c4e8";
+                @event.reminders = true;
                 db.Events.Add(@event);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Daily");
             }
 
             ViewBag.interestId = new SelectList(db.Interests, "interestId", "userId", @event.interestId);
             ViewBag.userId = new SelectList(db.AspNetUsers, "Id", "Email", @event.userId);
-            return View(@event);
+            return RedirectToAction("Daily");
         }
 
         // GET: Events/Edit/5
