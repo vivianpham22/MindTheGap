@@ -387,13 +387,8 @@
 
 /* Contact Us Page Styling */
 .jumbotron {
-    background: #999999;
-    /*Added gradient background*/
-    background: -webkit-linear-gradient(#e0d5d5,#9f9797 );
-    background: -moz-linear-gradient(#e0d5d5,#9f9797);
-    background: linear-gradient(#e0d5d5,#9f9797);
-    color: #FFF;
-    border-radius: 0px;
+    margin-top:50PX;
+    background-image: url('Images/MTGHeaderLarge.png');
 }
 
 .jumbotron-sm {
@@ -411,7 +406,7 @@
 }
 
 
-/* Frequently Asked Questions Styling */
+/* Frequently Asked Questions Styling 
 /* import the fonts needed */
 /*@import url("http://fonts.googleapis.com/css?family=Cookie");
 @import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");*/
@@ -762,25 +757,23 @@ form {
     cursor: pointer;
 }
 #add {
-    background-color: #9fff74 !important;
-    color: black !important;
+    border:0PX;
    
 }
 #clear {
-    background-color: #fd5c5c !important;
-    color: black !important;
+    border: 0PX;
 }
 #gaps-button {
-    margin-top:15px;
-    background-color: #13e6ff !important;
-    border-radius: 20px !important;
-    color: black !important;
+    margin-top: 15px;
+    background-color: #dcdcdd !important;
+    color: #4c5c68 !important;
+    border-radius: 0px;
 }
 #show-gaps-button {
     margin-top: 15px;
-    background-color: #13e6ff !important;
-    border-radius: 20px !important;
-    color: black !important;
+    background-color: #4c5c68 !important;
+    color: #dcdcdd !important;
+    border-radius: 0px;
 }
 .btn-info {
     background-color: #FBFBFB !important;
@@ -803,20 +796,18 @@ form {
 }
 
 #calendar {
-    margin-top: 30px;
-    min-height:900px;
+    margin-top: 21px;
+    min-height: 900px;
 }
 
 .message {
     width: 150px;
-    background-color: #fd5c5c;
+    background-color: #68a6b5;
     color: black;
     min-height: 25px;
     text-align: center;
     font-size: 10px;
     margin: 0;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
     border-bottom-color: black;
     border-left-color: black;
     border-right-color: black;
@@ -827,18 +818,16 @@ form {
     border-left-style: solid;
     border-right-style: solid;
     vertical-align: middle;
-    line-height:25px;
+    line-height: 25px;
 }
 .userName {
     width: 150px;
-    background-color: #9fff74;
+    background-color: #fff499;
     color: black;
     height: 25px;
     text-align: center;
     font-size: 10px;
     margin: 0;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
     border-top-color: black;
     border-left-color: black;
     border-right-color: black;
@@ -854,7 +843,7 @@ form {
 
 .messageDiv {
     margin: 15px;
-    margin-left: 30px;
+    margin-left: 58px;
     margin-right: auto;
     text-align: center;
     width: 150px;
@@ -1205,4 +1194,29 @@ form {
 }
 .showGaps{
     min-height:3000px;
+}
+.navbar-header {
+    background-color: #4e90a0;
+    color: #dcdcdd;
+}
+#navbar-collapse-2 {
+    background-color: #4e90a0
+}
+.navbar.navbar-default.navbar-fixed-top {
+    background-color: #4e90a0;
+    color: #dcdcdd;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a {
+    color: #dcdcdd;
+
+}
+.navbar-default .navbar-brand {
+    color: #dcdcdd;
+    margin-left:50px;
+}
+body {
+    background-color: #fdfdfd;
+}
+.authBtn{
+    margin-right:100px !important;
 }

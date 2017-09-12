@@ -25,11 +25,11 @@
     <!--JavaScript Sheets-->
     <script src="~/Scripts/MyScript.js"></script>
     <script src="~/Scripts/MyScript2.js"></script>
+   
 </head>
 <body>
     <!-- Navbar with Sign-in Ability -->
     <nav class="navbar navbar-default navbar-fixed-top" style="font-family: 'Questrial', sans-serif; color:white; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
-        <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
                     <span class="sr-only">Toggle navigation</span>
@@ -49,10 +49,8 @@
                     <li><a href="http://localhost:26262/Events/Create">Add Event</a></li>
                     <li><button id="authorize-button" class="btn btn-default btn-outline btn-circle" style="display:block">Sign in</button></li>
                     <li><button id="signout-button" class="btn btn-default btn-outline btn-circle" style="display:none">Sign Out</button></li>
-
                 </ul>
             </div><!-- /.navbar-collapse -->
-        </div><!-- /.container -->
     </nav><!-- /.navbar -->
     <div class="container">
         <div class="jumbotron jumbotron-sm" style="background-color:#999999; box-shadow: rgba(0,0,0,0.18) 0px 2px 4px; font-family: 'Questrial', sans-serif; color:white; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
@@ -116,8 +114,13 @@
             </div>
         </div>
     </div>
-    </div>
-    </div> <!-- end of body !-->
+
+    <script src="~/fullcalendar-3.4.0/GCal2.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js"
+            onload="this.onload=function(){};handleClientLoad()"
+            onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
 
 </body>
+
 </html>
