@@ -1249,3 +1249,7 @@ textarea#description{
     min-height:900px;
 
 }
+
+.jumbotron {
+    border-radius: 0px;
+}
