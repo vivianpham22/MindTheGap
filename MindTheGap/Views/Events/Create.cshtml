@@ -14,96 +14,97 @@
         </div>
     </div>
 </div>
+
 <div class="container">
     <div class="row">
         <div class="col-md-7">
-          @using (Html.BeginForm())
-          {
-            @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-            <div class="form-horizontal" id="createForm">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                
-                <div class="form-group">
-                    <h5 class="control-label col-md-3">Event Name</h5>
-                    <div class="col-md-9">
-                        @Html.EditorFor(model => model.summary, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.summary, "", new { @class = "text-danger" })
+                <div class="form-horizontal" id="createForm">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <h5 class="control-label col-md-3">Event Name</h5>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.summary, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.summary, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    @*<label for=" comment">Notes:</label>
-                    <textarea class="form-control" rows="5"></textarea>*@
-                    <h5 class = "control-label col-md-3 ">Notes</h5>
-                    <div class="col-md-9">
-                        @Html.TextAreaFor(model => model.description, new { htmlAttributes = new { @class = "form-control", @rows = 10}})
-                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @*<label for=" comment">Notes:</label>
+                            <textarea class="form-control" rows="5"></textarea>*@
+                        <h5 class="control-label col-md-3 ">Notes</h5>
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(model => model.description, new { htmlAttributes = new { @class = "form-control", @rows = 10 } })
+                            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                @*<div class="form-group">
-                    @Html.LabelFor(model => model.colorId, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.colorId, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.colorId, "", new { @class = "text-danger" })
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.colorId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.colorId, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.colorId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                    <div class="form-group">
+                        <h5 class="control-label col-md-3">Start Date & Time</h5>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.starttime, new { htmlAttributes = new { @class = "form-control", @placeholder = "mm/dd/yyyy hh:mm (24 hour format)" } })
+                            @Html.ValidationMessageFor(model => model.starttime, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>*@
 
-                <div class="form-group">
-                    <h5 class = "control-label col-md-3">Start Date & Time</h5>
-                    <div class="col-md-9">
-                        @Html.EditorFor(model => model.starttime, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.starttime, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <h5 class="control-label col-md-3">End Date & Time</h5>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.endtime, new { htmlAttributes = new { @class = "form-control", @placeholder = "mm/dd/yyyy hh:mm (24 hour format)" } })
+                            @Html.ValidationMessageFor(model => model.endtime, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <h5 class="control-label col-md-3">End Date & Time</h5>
-                    <div class="col-md-9">
-                        @Html.EditorFor(model => model.endtime, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.endtime, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.recurrence, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.recurrence, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.recurrence, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
 
-                @*<div class="form-group">
-                    @Html.LabelFor(model => model.recurrence, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.recurrence, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.recurrence, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.reminders, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    @Html.EditorFor(model => model.reminders)
+                                    @Html.ValidationMessageFor(model => model.reminders, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
 
-                @*<div class="form-group">
-                    @Html.LabelFor(model => model.reminders, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.reminders)
-                            @Html.ValidationMessageFor(model => model.reminders, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.completed, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    @Html.EditorFor(model => model.completed)
+                                    @Html.ValidationMessageFor(model => model.completed, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>*@
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default createBtn" style="background-color: #4c5c68 !important" />
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.completed, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.completed)
-                            @Html.ValidationMessageFor(model => model.completed, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>*@
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default createBtn" style="background-color: #4c5c68 !important" />
-                    </div>
-                </div>
-            </div>
-          }
-
+            }
         </div>
-        <div class="col-md-5"style="text-align:center;">
+
+        <div class="col-md-5" style="text-align:center;">
             <h2 id="toDolist" style="background-color:#999999; text-shadow: rgba(0,0,0,0.18) 0px 2px 4px; font-family: 'Questrial', sans-serif; color:white; text-shadow: rgba(0,0,0,0.18) 2px 4px 6px;">To Do List</h2>
             <form name="checkListForm" style="font-family: 'Questrial', sans-serif;">
                 <input type="text" name="checkListItem" placeholder="Add Item..." />
@@ -128,7 +129,6 @@
 <script>
     $(document).ready(function () {
 
-        //loads when the dom is loaded
         $(document).ready(function () {
             var getEvents = [];
             //getting information from the database
@@ -176,6 +176,7 @@
         })
     });
 </script>
+
 <script>
         $(document).ready(function () {
             $("#show-gaps-button").click(
@@ -210,19 +211,12 @@
 
         });
 </script>
+
 <script type="text/javascript">
 
     var findGap = '@Url.Action("Gaps", "Events")';
 
 </script>
-
-
-
-
-
-
-
-
 
 <div>
     @Html.ActionLink("Back to List", "Daily")

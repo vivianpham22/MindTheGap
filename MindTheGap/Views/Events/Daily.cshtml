@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Daily";
 }
+
 <div class="jumbotron jumbotron-sm" style="background-color:#999999; box-shadow: rgba(0,0,0,0.18) 0px 2px 4px; font-family: 'Questrial', sans-serif; color:white; text-shadow: 0, 1px, 2px, rgba(0,0,0,0.20);">
     <div class="container">
         <div class="row">
@@ -14,15 +15,16 @@
         </div>
     </div>
 </div>
+
 <div class="container">
     <div class="row" style="text-align:center;">
         <div id="calendar" class="col-md-7"></div>
-        <div class="col-md-5" >
-            <h2 id="toDolist"style="background-color:#999999; text-shadow: rgba(0,0,0,0.18) 0px 2px 4px; font-family: 'Questrial', sans-serif; color:white; text-shadow: rgba(0,0,0,0.18) 2px 4px 6px;">To Do List</h2>
+        <div class="col-md-5">
+            <h2 id="toDolist" style="background-color:#999999; text-shadow: rgba(0,0,0,0.18) 0px 2px 4px; font-family: 'Questrial', sans-serif; color:white; text-shadow: rgba(0,0,0,0.18) 2px 4px 6px;">To Do List</h2>
             <form name="checkListForm" style="font-family: 'Questrial', sans-serif;">
                 <input type="text" name="checkListItem" placeholder="Add Item..." />
             </form>
-            <i id="add" class="btn btn-info fa fa-plus"></i>  
+            <i id="add" class="btn btn-info fa fa-plus"></i>
             <i id="clear" title="Clear checked items" class="btn btn-default fa fa-minus"></i>
             <br /><br />
             <div class="list" style="font-family: 'Questrial', sans-serif;"></div>
@@ -32,14 +34,15 @@
             <button id="show-gaps-button" class="btn btn-info" style="box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;">Show Gaps</button>
         </span>
         <div class="row showGaps">
-                <span id="gaps"></span>
+            <span id="gaps"></span>
         </div>
     </div>
 </div>
 
+<script src="~/fullcalendar-3.4.0/GCal2.js"></script>
+
 <script>
     $(document).ready(function () {
-
         //loads when the dom is loaded
         $(document).ready(function () {
             var getEvents = [];
@@ -88,6 +91,7 @@
         })
     });
 </script>
+
 <script>
         $(document).ready(function () {
             $("#show-gaps-button").click(
@@ -122,6 +126,7 @@
 
         });
 </script>
+
 <script type="text/javascript">
 
     var findGap = '@Url.Action("Gaps", "Events")';

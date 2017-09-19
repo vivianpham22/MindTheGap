@@ -24,7 +24,7 @@ namespace MindTheGap.Controllers
         public string EventColor { get; set; }
 
 
-        //START OF TEST
+        //Grabs user data from Google API and creates a DB with that information.
         [HttpPost]
         public JsonResult GetUserEventInfo(EventsController events)
         {
@@ -43,7 +43,6 @@ namespace MindTheGap.Controllers
             string recurrence = events.EventRecurrence;
             bool reminders = false;
             string color = events.EventColor;
-            string AllInfo;
 
             Event newEvent = new Event();
             newEvent.userId = "c03d4c0a-ee82-4980-ad00-bb4cb16f99ca";
@@ -67,20 +66,11 @@ namespace MindTheGap.Controllers
             db.Events.Add(newEvent);
             db.SaveChanges();
 
-            if (startTime == "All Day")
-            {
-                AllInfo = summary + " is an All Day Event";
-            }
-            else
-            {
-                AllInfo = summary + " @ " + location + " From " + startTime + " to " + endTime;
-            }
 
             return new JsonResult()
             {
             };
 
-            //return Json(summary, JsonRequestBehavior.AllowGet);
         }
         //END OF TEST
 
@@ -97,10 +87,14 @@ namespace MindTheGap.Controllers
 
             return View();
         }
+
+        //Deletes Google events from our DB when we grab them so there are no duplicates
         public void EventDuplicates()
         {
             db.Database.ExecuteSqlCommand("DELETE Event Where reminders = 0");
         }
+
+        //Pulls DB information to display on the calendar
         public ActionResult GetCalendarDatabase()
         {
             {
@@ -108,10 +102,11 @@ namespace MindTheGap.Controllers
                 return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
+        //SQL runs through and finds the gaps in the schedule
         public ActionResult Gaps()
         {
             var today = DateTime.Now.ToString("dd-MM-yyyy");
-            //This command executes the SQL query against the database
             db.Database.ExecuteSqlCommand("DROP TABLE Gap");
             /*AND starttime LIKE 'today'*/
             db.Database.ExecuteSqlCommand("SELECT* INTO Gap FROM (SELECT MAX(endtime) OVER(ORDER BY starttime) GapStart, LEAD(starttime) OVER(ORDER BY starttime) GapEnd FROM[Event] WHERE starttime < endtime) AS Gaps");
@@ -119,6 +114,8 @@ namespace MindTheGap.Controllers
             //We don't have anything we need to return to the view. We could replace this with a redirect action if we want.
             return View();
         }
+
+        //Displays the gaps found
         public JsonResult TestJson()
         {
 
@@ -207,13 +204,16 @@ namespace MindTheGap.Controllers
         {
             if (ModelState.IsValid)
             {
+                @event.userId = "c03d4c0a-ee82-4980-ad00-bb4cb16f99ca";
+                @event.colorId = "36c4e8";
+                @event.reminders = true;
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.interestId = new SelectList(db.Interests, "interestId", "userId", @event.interestId);
             ViewBag.userId = new SelectList(db.AspNetUsers, "Id", "Email", @event.userId);
-            return View(@event);
+            return RedirectToAction("Index");
         }
 
         // GET: Events/Delete/5
